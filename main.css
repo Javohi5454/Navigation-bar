@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+}
+.sidebar{
+    position: fixed;
+    height: 100%;
+    width: 260px;
+    background: #102830;
+    padding: 15px;
+}
+.logo{
+    font-size: 25px;
+    padding: 0 15px;
+}
+.menu-content{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-top: 40px;
+    overflow-y: scroll;
+}
+.menu-content::-webkit-scrollbar {
+    display: none;
+}
+.menu-title{
+    font-size: 14px;
+    padding: 15px 20px;
+}
+.item a,
+.submenu-item{
+    padding: 16px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 12px;
+    transition: all 0.3s ease 0s;
+
+}
+.item a:hover,
+.submenu-item:hover,
+.submenu, .menu-title:hover{
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease 0s;
+}
+.submenu-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.submenu{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: calc(-100% - 26px);
+    background: #102830;
+    display: none;
+}
+.submenu .menu-title{
+    border-radius: 12px;
+    cursor: pointer;
+}
+.show-submenu ~ .submenu{
+    display: block;
+}
+.menu-items{
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s ease 0s;
+}
+.menu-items::-webkit-scrollbar {
+    display: none;
+}
+.submenu-active .menu-items{
+    transform: translateX(-56%);
+}
+.navbar, 
+.main{
+    left: 260px;
+    width: calc( 100% - 260px);
+    transition: all 0.3s ease 0s;
+    z-index: 1000;
+}
+.sidebar.close~.navbar,
+.sidebar.close~.main {
+    left: 0;
+    width: 100%;
+}
+.navbar{
+    position: fixed;
+    padding: 20px;
+    font-size: 25px;
+    background: #102830;
+}
+.navbar-bars {
+    width: 30px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.navbar-bars span{
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background: #fff;
+}
+.navbar #sidebar-close{
+    cursor: pointer;
+}
+.main{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    z-index: 100;
+    background: #fff;
+}
+.main h1{
+    color: #102830;
+    font-size: 40px;
+}
